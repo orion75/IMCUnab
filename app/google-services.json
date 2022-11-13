@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "290126148521",
+    "firebase_url": "https://imcunab-b9e9f-default-rtdb.firebaseio.com",
+    "project_id": "imcunab-b9e9f",
+    "storage_bucket": "imcunab-b9e9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:290126148521:android:ff019f5a610d484b748ab8",
+        "android_client_info": {
+          "package_name": "com.example.imcunab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "290126148521-mrc51lmid2chv4e779hjo1c6nphilska.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS3RAAcSEBzd_eupHfdMN66pFsP1dDcLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "290126148521-mrc51lmid2chv4e779hjo1c6nphilska.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
