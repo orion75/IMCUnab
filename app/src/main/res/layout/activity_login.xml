@@ -1,56 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".LoginActivity">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Acceder"
+        android:textAlignment="center"
+        style="@style/TextAppearance.MaterialComponents.Headline4"/>
+    <TextView
+        android:id="@+id/descripcionLabel"
+        android:layout_width="match_parent"
+        android:layout_below="@id/titleLabel"
+        android:layout_height="wrap_content"
+        android:text="Inicie sesión con su cuenta existente"
+        android:textAlignment="center"
+        style="@style/TextAppearance.MaterialComponents.Caption"/>
+
+
+    <!--Email-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
+        android:layout_width="match_parent"
+        android:layout_above="@id/passwordlLayout"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Password-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordlLayout"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="10dp"
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:hint="Contraseña"
             android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <!--Button-->
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordlLayout"
+        android:text="Acceder" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button" />
+    <TextView
+        android:id="@+id/registtoLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginButton"
+        android:layout_marginTop="30dp"
+        android:text="¿No tienes cuenta?"
+        android:textAlignment="center"
+        style="@style/TextAppearance.MaterialComponents.Caption"/>
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button" />
-        </LinearLayout>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/registroButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registtoLabel"
+        android:layout_margin="10dp"
+        android:text="Inscribete" />
+
+</RelativeLayout>
