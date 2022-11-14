@@ -30,6 +30,7 @@ public class RegistroActivity extends AppCompatActivity {
         binding = ActivityRegistroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.progressbar.setVisibility(View.GONE);
         firebaseAuth = FirebaseAuth.getInstance();
         binding.registroButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,7 @@ public class RegistroActivity extends AppCompatActivity {
     }
 
     private void ValidarDatos() {
+        binding.progressbar.setVisibility(View.VISIBLE);
         email = binding.emailEditText.getText().toString().trim();
         password = binding.passwordEditText.getText().toString().trim();
         validpassword = binding.validPasswordEditText.getText().toString().trim();
@@ -65,14 +67,20 @@ public class RegistroActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-
+                        binding.progressbar.setVisibility(View.GONE);
+                        Toast.makeText(RegistroActivity.this, "Usuario creado satisfactoriamente.", Toast.LENGTH_SHORT).show();
+                        finish();
+                        //onBackPressed();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        binding.progressbar.setVisibility(View.GONE);
                         Toast.makeText(RegistroActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
+
 }
