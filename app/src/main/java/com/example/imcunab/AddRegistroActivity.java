@@ -44,6 +44,16 @@ public class AddRegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) { ValidarDatos(); }
         });
+        binding.cancelarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AddRegistroActivity.this, ListRegistroActivity.class);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(i);
+                overridePendingTransition(0, 0);
+            }
+        });
     }
 
     private void ValidarDatos() {
@@ -70,13 +80,22 @@ public class AddRegistroActivity extends AppCompatActivity {
         df.set(pesoInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
+                Double estatura = Double.parseDouble(binding.estaturaEditText.getText().toString().trim()) / 100;
+                estatura = Math.pow(estatura, 2);
+                Double imc = Double.parseDouble(binding.pesoEditText.getText().toString().trim()) / estatura;
+                binding.imcLabel.setText(String.format("TU INDICE DE MASA CORPORAL ES\n%.2f", imc));
+                String result = "";
+                if (imc < 18.5f)
+                    result = "Se encuentra dentro del rango de peso insuficiente.";
+                else if  (imc >= 18.5f  && imc < 25f)
+                    result = "Se encuentra dentro del rango de peso normal o saludable.";
+                else if  (imc >= 25f  && imc < 30f)
+                    result = "Se encuentra dentro del rango de sobrepeso.";
+                else
+                    result = "Se encuentra dentro del rango de obesidad.";
+                binding.resultLabel.setText(result);
+                binding.calcularButton.setEnabled(false);
                 Toast.makeText(AddRegistroActivity.this, "Datos guardados", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(AddRegistroActivity.this, ListRegistroActivity.class);
-                finish();
-                overridePendingTransition(0, 0);
-                startActivity(i);
-                overridePendingTransition(0, 0);
-
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
