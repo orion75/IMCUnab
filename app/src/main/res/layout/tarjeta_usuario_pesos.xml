@@ -19,9 +19,8 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
             <TextView
                 android:id="@+id/tup_fechaLabel"
                 android:layout_width="wrap_content"
@@ -41,6 +40,33 @@
                 android:layout_marginBottom="10dp"
                 android:text="Estatura: 176 cm Peso: 80 Kg"
                 android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
+                android:text="IMC"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tup_imcLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:text="15"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>

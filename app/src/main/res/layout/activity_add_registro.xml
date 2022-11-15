@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_below="@id/titleLabel"
         android:layout_height="wrap_content"
-        android:text="Nombres y Apellidos"
+        android:text="..."
         android:textAlignment="center"
         style="@style/TextAppearance.MaterialComponents.Headline6"/>
 

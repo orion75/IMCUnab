@@ -16,11 +16,9 @@ import java.util.List;
 
 public class PesoUsuarioAdapter extends RecyclerView.Adapter<PesoUsuarioAdapter.ViewHolder> {
     List<PesoUsuario> pesoUsuarioList;
-    //private Context context;
 
     public PesoUsuarioAdapter(List<PesoUsuario> pesoUsuarioList/*, Context context*/) {
         this.pesoUsuarioList = pesoUsuarioList;
-        //this.context = context;
     }
 
     @NonNull
@@ -36,6 +34,7 @@ public class PesoUsuarioAdapter extends RecyclerView.Adapter<PesoUsuarioAdapter.
         holder.txtFecha.setText(item.getFecha());
         holder.txtDatos.setText("Estatura: " + item.getAltura() +
                 " Peso: " + item.getPeso());
+        holder.txtimc.setText(item.getImc());
     }
 
     @Override
@@ -47,12 +46,14 @@ public class PesoUsuarioAdapter extends RecyclerView.Adapter<PesoUsuarioAdapter.
         private ImageView imgFoto;
         private TextView txtFecha;
         private TextView txtDatos;
+        private TextView txtimc;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgFoto = itemView.findViewById(R.id.tup_imageLabel);
             txtFecha = itemView.findViewById(R.id.tup_fechaLabel);
             txtDatos = itemView.findViewById(R.id.tup_datosLabel);
+            txtimc = itemView.findViewById(R.id.tup_imcLabel);
         }
     }
 }

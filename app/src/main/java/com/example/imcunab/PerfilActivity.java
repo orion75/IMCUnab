@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -115,6 +116,11 @@ public class PerfilActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(PerfilActivity.this, "datos guardados", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(PerfilActivity.this, ListRegistroActivity.class);
+                        finish();
+                        overridePendingTransition(0, 0);
+                        startActivity(i);
+                        overridePendingTransition(0, 0);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
