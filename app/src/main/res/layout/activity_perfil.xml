@@ -1,9 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".PerfilActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:max="100"
+        android:backgroundTint="@color/white"
+        android:layout_below="@id/descripcionLabel"
+        android:indeterminateTint="#1a09d6"
+        android:layout_marginTop="-7dp"/>
+
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Perfil"
+        android:textAlignment="center"
+        style="@style/TextAppearance.MaterialComponents.Headline4"/>
+    <TextView
+        android:id="@+id/descripcionLabel"
+        android:layout_width="match_parent"
+        android:layout_below="@id/titleLabel"
+        android:layout_height="wrap_content"
+        android:text="Configure los datos de su perfil"
+        android:textAlignment="center"
+        style="@style/TextAppearance.MaterialComponents.Caption"/>
+
+
+    <!--Email-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
+        android:layout_width="match_parent"
+        android:layout_below="@id/descripcionLabel"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Nombres-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nombresLayout"
+        android:layout_width="match_parent"
+        android:layout_below="@id/emailLayout"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/nombresEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombres"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Apellidos-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/apellidosLayout"
+        android:layout_width="match_parent"
+        android:layout_below="@id/nombresLayout"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/apellidosEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellidos"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Fecha Nacimiento-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fechaNacimientoLayout"
+        android:layout_width="match_parent"
+        android:layout_below="@id/apellidosLayout"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/fechaNacimientoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="Fecha nacimiento"
+            android:inputType="date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/aceptarButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fechaNacimientoLayout"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Aceptar" />
+
+</RelativeLayout>

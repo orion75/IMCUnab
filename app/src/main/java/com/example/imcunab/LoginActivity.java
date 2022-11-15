@@ -16,11 +16,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
     private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String email = "", password = "";
 
     @Override
@@ -46,9 +49,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void ValidarDatos() {
+        binding.progressbar.setVisibility(View.VISIBLE);
         email = binding.emailEditText.getText().toString().trim();
         password = binding.passwordEditText.getText().toString().trim();
-
         //validar datos
         if (TextUtils.isEmpty(email)) {
             binding.emailEditText.setError("Email: es requerido.");
@@ -61,24 +64,39 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             firebaseLogin();
         }
+        binding.progressbar.setVisibility(View.GONE);
     }
 
     private void firebaseLogin() {
-        binding.progressbar.setVisibility(View.VISIBLE);
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
-                        binding.progressbar.setVisibility(View.GONE);
-                        Toast.makeText(LoginActivity.this, "Conectado\n" + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        FirebaseUser usuario = firebaseAuth.getCurrentUser();
+                        Toast.makeText(LoginActivity.this, "Conectado\n" + usuario.getEmail(), Toast.LENGTH_SHORT).show();
+
+
+                        db.collection("Usuarios").document(usuario.getEmail())
+                                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                        if (documentSnapshot.getData() == null)
+                                            startActivity(new Intent(LoginActivity.this, PerfilActivity.class));
+                                        else
+                                            startActivity(new Intent(LoginActivity.this, ListRegistroActivity.class));
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        binding.progressbar.setVisibility(View.GONE);
-                        Toast.makeText(LoginActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

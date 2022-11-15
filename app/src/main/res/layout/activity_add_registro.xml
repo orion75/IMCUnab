@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".AddRegistroActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:max="100"
+        android:backgroundTint="@color/white"
+        android:indeterminateTint="#1a09d6"
+        android:layout_marginTop="-7dp"/>
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido"
+        android:textAlignment="center"
+        style="@style/TextAppearance.MaterialComponents.Headline4"/>
+    <TextView
+        android:id="@+id/usuarioLabel"
+        android:layout_width="match_parent"
+        android:layout_below="@id/titleLabel"
+        android:layout_height="wrap_content"
+        android:text="Nombres y Apellidos"
+        android:textAlignment="center"
+        style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+    <!--Fecha-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fechaLayout"
+        android:layout_width="match_parent"
+        android:layout_below="@id/usuarioLabel"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/fechaEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="false"
+            android:hint="Fecha"
+            android:inputType="datetime" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Fecha-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/estaturaLayout"
+        android:layout_width="match_parent"
+        android:layout_below="@id/fechaLayout"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/estaturaEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Estatura (Cm)"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pesoLayout"
+        android:layout_width="match_parent"
+        android:layout_below="@id/estaturaLayout"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/pesoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Peso (Kg)"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/calcularButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pesoLayout"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Calcular" />
+
+</RelativeLayout>

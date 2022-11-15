@@ -1,57 +1,59 @@
 package com.example.imcunab.Adapter;
 
-public class PesosUsuario {
-    private String id;
-    private String fecha;
-    private String altura;
-    private String peso;
+public class PesoUsuario {
+    private String Id;
+    private String Fecha;
+    private String Altura;
+    private String Peso;
 
-    public PesosUsuario(String id, String fecha, String altura, String peso) {
-        this.id = id;
-        this.fecha = fecha;
-        this.altura = altura;
-        this.peso = peso;
-    }
+    public PesoUsuario(){}
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getAltura() {
-        return altura;
-    }
-
-    public void setAltura(String altura) {
-        this.altura = altura;
-    }
-
-    public String getPeso() {
-        return peso;
-    }
-
-    public void setPeso(String peso) {
-        this.peso = peso;
+    public PesoUsuario(String id, String fecha, String altura, String peso) {
+        Id = id;
+        Fecha = fecha;
+        Altura = altura;
+        Peso = peso;
     }
 
     @Override
     public String toString() {
-        return "PesosUsuario{" +
-                "id='" + id + '\'' +
-                ", fecha='" + fecha + '\'' +
-                ", altura='" + altura + '\'' +
-                ", peso='" + peso + '\'' +
+        return "PesoUsuario{" +
+                "Id='" + Id + '\'' +
+                ", Fecha='" + Fecha + '\'' +
+                ", Altura='" + Altura + '\'' +
+                ", Peso='" + Peso + '\'' +
                 '}';
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String fecha) {
+        Fecha = fecha;
+    }
+
+    public String getAltura() {
+        return Altura;
+    }
+
+    public void setAltura(String altura) {
+        Altura = altura;
+    }
+
+    public String getPeso() {
+        return Peso;
+    }
+
+    public void setPeso(String peso) {
+        Peso = peso;
     }
 }
