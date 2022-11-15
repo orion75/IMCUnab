@@ -25,8 +25,6 @@ public class ListRegistroActivity extends AppCompatActivity {
 
     private ActivityListRegistroBinding binding;
     private RecyclerView recyclerPesoUsuarios;
-    //private RecyclerView.Adapter mAdapter;
-    //private RecyclerView.LayoutManager mLayaoutManager;
     private PesoUsuarioAdapter pesoUsuarioAdapter;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private List<PesoUsuario> pesosUsuario;
@@ -40,8 +38,6 @@ public class ListRegistroActivity extends AppCompatActivity {
         FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
         recyclerPesoUsuarios = binding.recyclerPesoUsuarios;
         recyclerPesoUsuarios.setHasFixedSize(true);
-        //mLayaoutManager = new LinearLayoutManager(this);
-
 
         db.collection("Usuarios").document(usuario.getEmail())
             .collection("Pesos").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -51,7 +47,6 @@ public class ListRegistroActivity extends AppCompatActivity {
                         pesoUsuarioAdapter = new PesoUsuarioAdapter(pesosUsuario/*, ListRegistroActivity.this*/);
                         recyclerPesoUsuarios.setLayoutManager(new LinearLayoutManager(ListRegistroActivity.this));
                         recyclerPesoUsuarios.setAdapter(pesoUsuarioAdapter);
-
                     }
                 });
         binding.agregarButton.setOnClickListener(new View.OnClickListener() {

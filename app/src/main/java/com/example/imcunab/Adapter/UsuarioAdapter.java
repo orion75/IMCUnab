@@ -30,8 +30,9 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Usuario item = usuarioList.get(position);
+
         holder.txtNombres.setText(item.getNombres() + " " + item.getApellidos());
-        holder.txtFechaNac.setText("Fecha Nacimiento: " + item.getFechaNacimiento());
+        holder.txtFechaNac.setText("Nacio el: " + item.getFechaNacimiento());
     }
 
     @Override

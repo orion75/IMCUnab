@@ -7,16 +7,6 @@
     android:layout_margin="20dp"
     tools:context=".ListRegistroActivity">
 
-   <!-- <LinearLayout
-        android:id="@+id/linearPadre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">-->
-
-
-    <!--</LinearLayout>-->
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_peso_usuarios"
         android:layout_width="match_parent"
